@@ -23,16 +23,17 @@ print score
 clf3=SGDClassifier(loss="hinge", penalty="l1")
 clf3.fit(x,y)
 y_pred2=clf3.predict(x_test)
-score2=accuracy_score(y_test,y_pred2)
-print score2
+score1=accuracy_score(y_test,y_pred2)
+print score1
 
 clf4=neighbors.KNeighborsClassifier(4,weights="distance")
 clf4.fit(x,y)
 y_pred4=clf4.predict(x_test)
-score4=accuracy_score(y_test,y_pred4)
-print score4
+score2=accuracy_score(y_test,y_pred4)
+print score2
 
 
-i=np.argmax([score,score2,score4])
+i=np.argmax([score,score1,score2])
 a={0:"SVM",1:"SGD",2:"KNeighbors"}
-print a[i]
+
+print "The high accuracy classifier for this example is : {}".format(a[i])
